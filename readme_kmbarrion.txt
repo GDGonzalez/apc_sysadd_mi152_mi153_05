@@ -1,3 +1,3 @@
-Kevin Barrion
+Kevin Magno Barrion
 Carl Justine Noleal
-Chantal Magno Saldivar
+Chantal Saldivar
