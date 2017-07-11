@@ -1,4 +1,4 @@
 Chantal Saldivar
 Carl Justine Noleal
-Kevin Barrion
+Kevin Magno Barrion
 
