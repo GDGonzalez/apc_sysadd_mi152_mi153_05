@@ -13,7 +13,7 @@ use Yii;
  *
  * @property Room[] $rooms
  */
-class RoomType extends \yii\db\ActiveRecord
+class Roomtype extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
