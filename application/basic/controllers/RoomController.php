@@ -8,6 +8,7 @@ use app\models\RoomSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * RoomController implements the CRUD actions for Room model.
@@ -20,6 +21,17 @@ class RoomController extends Controller
     public function behaviors()
     {
         return [
+
+            'access'=>[
+            'class'=>AccessControl::classname(),
+            'only'=>['create','update'],
+            'rules'=>[
+                         [
+                            'allow'=>true,
+                            'roles'=>['@']
+                         ],
+                ]
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
