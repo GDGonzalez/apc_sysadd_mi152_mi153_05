@@ -8,6 +8,7 @@ use app\models\AssessmentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * AssessmentController implements the CRUD actions for Assessment model.
@@ -20,6 +21,17 @@ class AssessmentController extends Controller
     public function behaviors()
     {
         return [
+        'access'=>[
+            'class'=>AccessControl::classname(),
+            'only'=>['create','update'],
+            'rules'=>[
+                        [
+                        'allow'=>true,
+                        'roles'=>['@']
+                ],
+            ]
+
+        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

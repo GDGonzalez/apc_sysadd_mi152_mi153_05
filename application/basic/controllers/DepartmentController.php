@@ -3,17 +3,17 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Room;
-use app\models\RoomSearch;
+use app\models\Department;
+use app\models\DepartmentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+use yii\filters\AccessControl;  
 
 /**
- * RoomController implements the CRUD actions for Room model.
+ * DepartmentController implements the CRUD actions for Department model.
  */
-class RoomController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * @inheritdoc
@@ -26,10 +26,11 @@ class RoomController extends Controller
             'class'=>AccessControl::classname(),
             'only'=>['create','update'],
             'rules'=>[
-                         [
-                            'allow'=>true,
-                            'roles'=>['@']
-                         ],
+                    [
+                        'allow'=>true,
+                        'roles'=>['@']
+                    ],
+
                 ]
             ],
             'verbs' => [
@@ -42,12 +43,12 @@ class RoomController extends Controller
     }
 
     /**
-     * Lists all Room models.
+     * Lists all Department models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new RoomSearch();
+        $searchModel = new DepartmentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -57,7 +58,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Displays a single Room model.
+     * Displays a single Department model.
      * @param integer $id
      * @return mixed
      */
@@ -69,13 +70,13 @@ class RoomController extends Controller
     }
 
     /**
-     * Creates a new Room model.
+     * Creates a new Department model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Room();
+        $model = new Department();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -87,7 +88,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Updates an existing Room model.
+     * Updates an existing Department model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -106,7 +107,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Deletes an existing Room model.
+     * Deletes an existing Department model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -119,15 +120,15 @@ class RoomController extends Controller
     }
 
     /**
-     * Finds the Room model based on its primary key value.
+     * Finds the Department model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Room the loaded model
+     * @return Department the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Room::findOne($id)) !== null) {
+        if (($model = Department::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
